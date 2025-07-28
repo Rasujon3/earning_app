@@ -19,7 +19,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="{{URL::to('/')}}"><strong>Admin Login</strong></a>
+    <a href="{{URL::to('/')}}"><strong>Login</strong></a>
   </div>
   <!-- /.login-logo -->
   <div class="card">
@@ -29,7 +29,7 @@
       <form action="{{URL::to('admin-login')}}" method="post">
        @csrf
         <div class="input-group mb-3">
-          <input type="email" name="email" class="form-control" placeholder="Email" required="">
+          <input type="text" name="username" class="form-control" placeholder="Username" required="">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -74,7 +74,7 @@
 <script src="{{asset('back/dist/js/adminlte.min.js')}}"></script>
 
 <script src="{{asset('custom/toastr.js')}}"></script>
- 
+
   @if(Session::has('messege'))
     @toastr("{{ Session::get('messege') }}")
   @endif

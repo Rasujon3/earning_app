@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('uid', 20)->nullable();
-            $table->string('name')->default('user')->nullable();
-            $table->string('role')->nullable();
+            $table->string('name')->nullable();
+            $table->string('role')->default('user')->nullable();
             $table->string('username')->nullable();
             $table->string('phone')->nullable();
             $table->string('withdraw_acc_number')->nullable();

@@ -18,9 +18,17 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
+        'uid',
         'name',
-        'email',
+        'role',
+        'username',
+        'phone',
+        'withdraw_acc_number',
         'password',
+        'withdraw_password',
+        'amount',
+        'status',
+        'remember_token',
     ];
 
     /**
@@ -30,6 +38,7 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password',
+        'withdraw_password',
         'remember_token',
     ];
 
@@ -41,4 +50,23 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function setPasswordAttribute($value)
+    {
+        if ($value) {
+            $this->attributes['password'] = bcrypt($value);
+        }
+    }
+
+    public function setWithdrawPasswordAttribute($value)
+    {
+        if ($value) {
+            $this->attributes['withdraw_password'] = bcrypt($value);
+        }
+    }
+    public function getAuthIdentifierName()
+    {
+        return 'username';
+    }
+
 }

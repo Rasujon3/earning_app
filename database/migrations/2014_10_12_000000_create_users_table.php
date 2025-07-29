@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('withdraw_acc_number')->nullable();
             $table->string('password')->nullable();
             $table->string('withdraw_password')->nullable();
-            $table->string('amount')->nullable();
+            $table->string('balance')->nullable();
             $table->enum('status', ['Active', 'Inactive'])->nullable()->default('Active');
             $table->rememberToken();
             $table->timestamps();
